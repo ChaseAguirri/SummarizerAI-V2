@@ -27,39 +27,39 @@ app.post('/summarize', async (req, res) => {
 
   let prompt = '';
 
-  switch (mode) {
-    case 'child':
-      prompt = `Summarize the following text in a simple way that a young child could understand:\n\n${text}`;
-      break;
-    case 'detailed':
-      prompt = `Provide a detailed summary of the following text:\n\n${text}`;
-      break;
-    case 'bullet':
-      prompt = `Summarize the following text using concise bullet points:\n\n${text}`;
-      break;
-    case 'simple':
-      prompt = `Summarize the following text simply and clearly:\n\n${text}`;
-      break;
-    case 'technical':
-      prompt = `Summarize the following text using technical language appropriate for experts:\n\n${text}`;
-      break;
-    case 'funny':
-      prompt = `Summarize the following text with humor and wit:\n\n${text}`;
-      break;
-    case 'formal':
-      prompt = `Summarize the following text in a formal and professional tone:\n\n${text}`;
-      break;
-    case 'poetic':
-      prompt = `Summarize the following text poetically, using expressive language:\n\n${text}`;
-      break;
-    case 'story':
-      prompt = `Summarize the following text as a short engaging story:\n\n${text}`;
-      break;
-    case 'best':
-    default:
-      prompt = `Summarize this text as clearly and accurately as possible:\n\n${text}`;
-      break;
-  }
+switch (mode) {
+  case 'child':
+    prompt = `Explain the following text in a super simple and friendly way, like you're talking to a 6-year-old:\n\n${text}`;
+    break;
+  case 'detailed':
+    prompt = `Write a thorough and comprehensive summary of the following text. Include all key points, important details, and supporting ideas:\n\n${text}`;
+    break;
+  case 'bullet':
+    prompt = `Summarize the following text using short, clear bullet points. Highlight the most important facts and main ideas:\n\n${text}`;
+    break;
+  case 'simple':
+    prompt = `Write a clear and easy-to-understand summary of the following text using plain language:\n\n${text}`;
+    break;
+  case 'technical':
+    prompt = `Summarize the following text using technical terminology and formal phrasing suitable for a professional or academic audience in the relevant field:\n\n${text}`;
+    break;
+  case 'funny':
+    prompt = `Create a funny and witty summary of the following text. Use clever humor, jokes, or sarcasm where appropriate:\n\n${text}`;
+    break;
+  case 'formal':
+    prompt = `Provide a formal and professional summary of the following text, suitable for business or academic use:\n\n${text}`;
+    break;
+  case 'poetic':
+    prompt = `Summarize the following text in a poetic and artistic way, using expressive language, metaphors, or rhythm:\n\n${text}`;
+    break;
+  case 'story':
+    prompt = `Turn the following text into a short, engaging story with a beginning, middle, and end. Make it entertaining but still faithful to the main points:\n\n${text}`;
+    break;
+  case 'best':
+  default:
+    prompt = `Summarize the following text as accurately, clearly, and naturally as possible. Focus on clarity, balance, and relevance:\n\n${text}`;
+    break;
+}
 
   try {
     const completion = await openai.chat.completions.create({
